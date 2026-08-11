@@ -120,18 +120,6 @@ GrothProof groth_Prove(const PKey& pk,const QAP& qap,const vector<Fr>& assign) {
 
     bool valid_qap =verify_QAP(qap,assign,h);
 
-    if (!valid_qap) {
-        throw runtime_error(
-            "Cannot create proof: invalid QAP witness"
-        );
-    }
-
-    if (h.size() > pk.hQ_G1.size()) {
-        throw runtime_error(
-            "h(X) exceeds the setup degree"
-        );
-    }
-
     Fr r = rand_fr();
     Fr s = rand_fr();
     GrothProof proof;

@@ -160,9 +160,7 @@ pair<vector<Fr>, vector<Fr>> divide_poly(vector<Fr> num,vector<Fr> deno) {
     num = norm_poly(num);
     deno= norm_poly(deno);
     if (poly_zeroCheck(deno)) {
-        throw runtime_error(
-            "Division by zero polynomial"
-        );
+        throw runtime_error("Division by zero");
     }
 
     if (poly_zeroCheck(num) ||num.size() < deno.size()) {
